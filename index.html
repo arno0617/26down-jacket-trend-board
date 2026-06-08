@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>女装羽绒服全球趋势看板 2026</title>
+  <style>
+    :root {
+      --ink: #191816;
+      --muted: #68615a;
+      --line: #ddd6cc;
+      --paper: #f7f3ed;
+      --panel: #fffdfa;
+      --black: #171717;
+      --cream: #e9dfcf;
+      --camel: #ad7d4c;
+      --olive: #68745a;
+      --burgundy: #6b2730;
+      --blue: #2b506d;
+      --grey: #8b8e8b;
+      --pink: #d7a7ac;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+    }
+
+    a { color: inherit; }
+
+    header {
+      min-height: 86vh;
+      display: grid;
+      align-items: end;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.62)),
+        url("https://www.mytheresa.com/image/652/738/100/81/P01148475.jpg") center 14% / cover no-repeat;
+      color: white;
+      padding: 40px min(6vw, 72px);
+    }
+
+    .hero {
+      max-width: 1040px;
+      padding-bottom: 22px;
+    }
+
+    .eyebrow {
+      font-size: 13px;
+      letter-spacing: 0;
+      opacity: .82;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 84px);
+      line-height: 1.02;
+      letter-spacing: 0;
+      margin: 0 0 22px;
+      max-width: 980px;
+    }
+
+    .hero p {
+      font-size: clamp(16px, 2vw, 22px);
+      line-height: 1.7;
+      max-width: 760px;
+      margin: 0;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(247, 243, 237, .94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px min(6vw, 72px);
+      overflow-x: auto;
+    }
+
+    .tabs, .filters {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+
+    button {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      border-radius: 6px;
+      padding: 9px 12px;
+      font: inherit;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    button.active {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+
+    main {
+      padding: 34px min(6vw, 72px) 70px;
+    }
+
+    section {
+      margin: 0 auto 54px;
+      max-width: 1440px;
+    }
+
+    h2 {
+      font-size: clamp(26px, 3.2vw, 42px);
+      line-height: 1.15;
+      margin: 0 0 16px;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 920px;
+      margin: 0 0 24px;
+    }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .signal {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      min-height: 154px;
+    }
+
+    .signal strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .signal p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .color-chip {
+      min-height: 106px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,.14);
+      display: grid;
+      align-content: end;
+      padding: 10px;
+      color: white;
+      text-shadow: 0 1px 10px rgba(0,0,0,.38);
+      font-size: 13px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .media {
+      aspect-ratio: 5 / 6.25;
+      background: #e8e2d9;
+      overflow: hidden;
+    }
+
+    .media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .body {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .brand {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .title {
+      font-size: 17px;
+      line-height: 1.35;
+      min-height: 46px;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 8px;
+      font-size: 12px;
+      color: var(--muted);
+      background: #fbf8f3;
+    }
+
+    .source {
+      display: inline-block;
+      margin-top: 4px;
+      font-size: 13px;
+      color: #4b392b;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .cycle {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+    }
+
+    .panel h3 {
+      margin: 0 0 12px;
+      font-size: 21px;
+    }
+
+    .panel ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 14px;
+      border-bottom: 1px solid var(--line);
+      line-height: 1.65;
+    }
+
+    th {
+      background: #eee7dd;
+      font-size: 14px;
+    }
+
+    td {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hidden { display: none; }
+
+    footer {
+      padding: 30px min(6vw, 72px) 46px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 13px;
+    }
+
+    @media (max-width: 1100px) {
+      .products, .signal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .palette { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 680px) {
+      header { min-height: 74vh; padding: 28px 18px; }
+      main { padding: 26px 18px 54px; }
+      .nav-inner { padding: 10px 18px; align-items: flex-start; }
+      .products, .signal-grid, .cycle { grid-template-columns: 1fr; }
+      .palette { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      th, td { display: block; }
+      th { border-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hero">
+      <div class="eyebrow">Firecrawl 抓取整理 · 全球一线/高端女装羽绒服 · 更新日 2026-06-08</div>
+      <h1>女装羽绒服热门款式与流行轮回看板</h1>
+      <p>把 Moncler、Max Mara、Miu Miu、Prada、Canada Goose 等一线/高端在售款，与 Vogue、ELLE、Marie Claire 的趋势判断放在一起看，帮助中国境内女装羽绒服生意做选款、配色和系列结构。</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-inner">
+      <div class="tabs">
+        <button class="active" data-filter="all">全部款式</button>
+        <button data-filter="cropped">短款</button>
+        <button data-filter="belted">收腰/腰带</button>
+        <button data-filter="hybrid">混合材质</button>
+        <button data-filter="long">中长/长款</button>
+        <button data-filter="vest">背心</button>
+      </div>
+      <div class="filters">
+        <button data-filter="black">黑灰</button>
+        <button data-filter="cream">奶油/米驼</button>
+        <button data-filter="earth">大地色</button>
+        <button data-filter="color">彩色点缀</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section>
+      <h2>今年实际流行风格</h2>
+      <p class="lead">从 2026 在售页和 2025/2026 编辑推荐交叉看，今年不是单一“黑色短羽绒”逻辑，而是六条线并行：短款比例、长款包裹、腰线回归、混合材质、高级中性色、酒红/橄榄绿点亮。</p>
+      <div class="signal-grid">
+        <div class="signal"><strong>短款继续强</strong><p>Moncler Eucalyptus、Jacquemus cropped、Prada cropped cashmere/wool 都指向高腰裤友好的短比例，适合年轻客群和高客单形象款。</p></div>
+        <div class="signal"><strong>腰线回归</strong><p>Max Mara、Tod's、ELLE 的 sleeping bag/belted 线索说明：松弛外轮廓里加入腰部调节，是今年更显瘦、更商业的关键。</p></div>
+        <div class="signal"><strong>混合材质升温</strong><p>羊绒、羊毛、麂皮、灯芯绒、皮革边饰、teddy 拼接被高端电商反复陈列，羽绒服开始像外套而不只是保暖品。</p></div>
+        <div class="signal"><strong>长款做安全盘</strong><p>Marie Claire 和 ELLE 都把 long/sleeping bag coat 单列，说明极寒与通勤市场仍需要中长到长款承担销量和保暖信任。</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>热门颜色</h2>
+      <p class="lead">品牌官网和高端电商的筛选项覆盖黑、米、棕、灰、绿、酒红、粉、白；实际更值得落地的是“深色主盘 + 奶油米驼 + 橄榄/酒红点色”。</p>
+      <div class="palette">
+        <div class="color-chip" style="background:var(--black)">黑色 / 炭黑<br>主销安全色</div>
+        <div class="color-chip" style="background:var(--cream); color:#342b22; text-shadow:none">奶油白 / 米色<br>高端显贵</div>
+        <div class="color-chip" style="background:var(--camel)">驼色 / 棕色<br>Max Mara 逻辑</div>
+        <div class="color-chip" style="background:var(--olive)">橄榄绿<br>今年趋势点</div>
+        <div class="color-chip" style="background:var(--burgundy)">酒红 / 勃艮第<br>黑色替代色</div>
+        <div class="color-chip" style="background:var(--grey)">灰色<br>羊绒感高级</div>
+        <div class="color-chip" style="background:var(--blue)">海军蓝 / 蓝灰<br>通勤扩展</div>
+        <div class="color-chip" style="background:var(--pink)">柔粉<br>少量形象款</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>热门品牌款式</h2>
+      <p class="lead">以下卡片来自 Firecrawl 抓取的 Mytheresa、24S、Vogue、ELLE、Marie Claire 等页面。价格和库存会变动，图片用于浏览趋势与版型结构。</p>
+      <div class="products" id="products"></div>
+    </section>
+
+    <section>
+      <h2>往年轮回推算</h2>
+      <div class="cycle">
+        <div class="panel">
+          <h3>往年成熟生产款反复有效</h3>
+          <ul>
+            <li>高领、连帽、防风门襟是稳定的上半身识别区。</li>
+            <li>腰部抽绳、内收腰、外腰带长期解决羽绒显臃肿的问题。</li>
+            <li>大口袋、暖手袋、翻盖袋是可销售的工装功能基础，但数量要克制。</li>
+            <li>短款负责品牌识别和年轻化，中长款负责主销与保暖。</li>
+            <li>肩袖体积和披片结构可以做记忆点，但必须建立在真实可穿袖型上。</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>今年推算与现实验证</h3>
+          <ul>
+            <li>推算：短款结构感会延续。现实：Moncler、Jacquemus、Prada 均有短款/短夹克式在售。</li>
+            <li>推算：腰部调节会回潮。现实：Belted、cinch waist、drawstring 在编辑推荐和电商款中密集出现。</li>
+            <li>推算：暗色品牌可用大地色扩色。现实：棕、米、灰、橄榄绿、酒红成为高端替代色。</li>
+            <li>推算：材质对撞增强高级感。现实：羊绒、羊毛、麂皮、teddy、皮革边饰被一线品牌使用。</li>
+            <li>推算：中长款不能丢。现实：long puffer / sleeping bag coat 被单列为趋势类型。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>中国市场选款建议</h2>
+      <table>
+        <thead>
+          <tr><th>系列角色</th><th>建议开发</th><th>颜色</th><th>商业判断</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>品牌形象款</td><td>短款结构羽绒、披片袖/宽袖、高领连帽、1-2 个强识别点</td><td>炭黑、石墨灰、深海军蓝</td><td>适合橱窗、直播主推开场、拉高品牌感；注意别做成过度概念款。</td></tr>
+          <tr><td>主销年轻款</td><td>短款宽松羽绒、轻腰部调节、袖口收紧、隐藏口袋</td><td>黑、奶油白、橄榄绿</td><td>承接今年短款趋势，也更适合南方/城市通勤。</td></tr>
+          <tr><td>主销保暖款</td><td>中长连帽派克羽绒、防风门襟、大口袋、内收腰</td><td>黑、棕、灰、米驼</td><td>对中国北方和下沉城市更稳，是销量盘，不宜只做短款。</td></tr>
+          <tr><td>高客单款</td><td>羊绒感/毛感拼接、麂皮边饰、可拆帽、低调五金</td><td>驼、灰、奶油白、深棕</td><td>学习 Max Mara、Brunello、Miu Miu 的材质价值感，适合提高毛利。</td></tr>
+          <tr><td>趋势点缀款</td><td>酒红短款、橄榄绿绗缝、柔粉针织拼接</td><td>酒红、橄榄绿、柔粉</td><td>少量做陈列和内容传播，不建议大面积压库存。</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    来源包括 Mytheresa “Puffer & Down Jackets”、24S “Puffer coats Women”、Vogue “Best Puffer Jackets for Women”、ELLE “The Puffer Jacket Styles Cool Girls Are Wearing This Winter”、Marie Claire “This Winter’s Puffer Jackets Are Getting a Fashion Upgrade”，以及本地往年成熟生产款分析。网页只做趋势研究和选款参考，不复制品牌设计细节。
+  </footer>
+
+  <script>
+    const products = [
+      {
+        brand: "Max Mara",
+        title: "The Cube Destino cashmere down jacket",
+        image: "https://www.mytheresa.com/image/652/738/100/eb/P01124670.jpg",
+        price: "$2,050 / Mytheresa",
+        color: "米驼 / cashmere",
+        style: "高端中性色、材质价值感",
+        tags: ["cream", "earth", "hybrid"],
+        url: "https://www.mytheresa.com/us/en/women/max-mara-the-cube-destino-cashmere-down-jacket-beige-p01124670"
+      },
+      {
+        brand: "Max Mara",
+        title: "Belted quilted down jacket",
+        image: "https://www.mytheresa.com/image/652/738/100/bd/P01124662.jpg",
+        price: "$1,590 / Mytheresa",
+        color: "黑色",
+        style: "收腰绗缝、通勤主销",
+        tags: ["black", "belted"],
+        url: "https://www.mytheresa.com/us/en/women/max-mara-beted-quilted-down-jacket-black-p01124662"
+      },
+      {
+        brand: "Miu Miu",
+        title: "Reversible down jacket",
+        image: "https://www.mytheresa.com/image/652/738/100/81/P01148475.jpg",
+        price: "$5,100 / Mytheresa",
+        color: "棕色",
+        style: "可逆穿、复古少女与高客单",
+        tags: ["earth", "hybrid"],
+        url: "https://www.mytheresa.com/us/en/women/miu-miu-reversible-down-jacket-brown-p01148475"
+      },
+      {
+        brand: "Miu Miu",
+        title: "Cotton corduroy down jacket",
+        image: "https://www.mytheresa.com/image/652/738/100/22/P01069707.jpg",
+        price: "Mytheresa",
+        color: "米色 / 灯芯绒",
+        style: "材质对撞、学院复古",
+        tags: ["cream", "hybrid"],
+        url: "https://www.mytheresa.com/us/en/women/miu-miu-cotton-corduroy-down-jacket-beige-p01069707"
+      },
+      {
+        brand: "Moncler",
+        title: "Eucalyptus cropped down jacket",
+        image: "https://www.mytheresa.com/image/652/738/100/2c/P01127254.jpg",
+        price: "$1,870 / Mytheresa",
+        color: "米色",
+        style: "短款高蓬、年轻比例",
+        tags: ["cream", "cropped"],
+        url: "https://www.mytheresa.com/us/en/women/moncler-cropped-down-jacket-beige-p01127254"
+      },
+      {
+        brand: "Moncler",
+        title: "Lans down jacket",
+        image: "https://www.mytheresa.com/image/652/738/100/0b/P01127345.jpg",
+        price: "Mytheresa",
+        color: "绿色",
+        style: "轻短款、色彩趋势",
+        tags: ["color", "cropped", "earth"],
+        url: "https://www.mytheresa.com/us/en/women/moncler-lans-down-jacket-green-p01127345"
+      },
+      {
+        brand: "Moncler",
+        title: "Andro hooded down jacket",
+        image: "https://www.mytheresa.com/image/652/738/100/7c/P01127391.jpg",
+        price: "Mytheresa",
+        color: "酒红",
+        style: "连帽短款、酒红替代黑",
+        tags: ["color", "cropped"],
+        url: "https://www.mytheresa.com/us/en/women/moncler-andro-hooded-down-jacket-burgundy-p01127391"
+      },
+      {
+        brand: "Prada",
+        title: "Logo cotton-blend puffer jacket",
+        image: "https://www.mytheresa.com/image/652/738/100/a3/P01061966.jpg",
+        price: "Mytheresa",
+        color: "米色",
+        style: "棉混纺、Logo 克制、短夹克感",
+        tags: ["cream", "cropped", "hybrid"],
+        url: "https://www.mytheresa.com/us/en/women/prada-logo-cotton-blend-puffer-jacket-beige-p01061966"
+      },
+      {
+        brand: "Prada",
+        title: "Re-Nylon hooded jacket",
+        image: "https://www.mytheresa.com/image/652/738/100/18/P01151391.jpg",
+        price: "Mytheresa",
+        color: "粉色",
+        style: "机能尼龙、柔粉点色",
+        tags: ["color", "cropped"],
+        url: "https://www.mytheresa.com/us/en/women/prada-re-nylon-hooded-jacket-pink-p01151391"
+      },
+      {
+        brand: "Canada Goose",
+        title: "HyBridge wool-blend down jacket",
+        image: "https://www.mytheresa.com/image/652/738/100/2c/P01148929.jpg",
+        price: "$855 / Mytheresa",
+        color: "棕色",
+        style: "针织/羽绒混合、轻户外",
+        tags: ["earth", "hybrid"],
+        url: "https://www.mytheresa.com/us/en/women/canada-goose-hybridge-r-wool-blend-down-jacket-brown-p01148929"
+      },
+      {
+        brand: "Canada Goose",
+        title: "HyBridge down-paneled wool jacket",
+        image: "https://www.mytheresa.com/image/652/738/100/76/P01148931.jpg",
+        price: "$800 / Mytheresa",
+        color: "米色",
+        style: "高保暖、短中款、通勤户外",
+        tags: ["cream", "cropped"],
+        url: "https://www.mytheresa.com/us/en/women/canada-goose-hybridge-down-paneled-wool-jacket-beige-p01148931"
+      },
+      {
+        brand: "Jacquemus",
+        title: "La Parka Fresa cropped puffer jacket",
+        image: "https://www.mytheresa.com/image/652/738/100/6f/P00650979.jpg",
+        price: "$1,130 / Mytheresa",
+        color: "粉色",
+        style: "超短、少女色、形象款",
+        tags: ["color", "cropped"],
+        url: "https://www.mytheresa.com/us/en/women/jacquemus-la-parka-fresa-cropped-puffer-jacket-pink-p00650979"
+      },
+      {
+        brand: "Tod's",
+        title: "Belted hooded padded cashmere jacket",
+        image: "https://www.mytheresa.com/image/652/738/100/5f/P01107726.jpg",
+        price: "$3,675 / Mytheresa",
+        color: "灰色",
+        style: "腰带、羊绒感、都市高端",
+        tags: ["black", "belted", "hybrid"],
+        url: "https://www.mytheresa.com/us/en/women/tods-belted-hooded-cashmere-jacket-grey-p01107726"
+      },
+      {
+        brand: "Bottega Veneta",
+        title: "Intrecciato leather-trimmed down jacket",
+        image: "https://www.mytheresa.com/image/652/738/100/aa/P01099455.jpg",
+        price: "Mytheresa",
+        color: "米色 / 皮革边饰",
+        style: "奢侈工艺感、低调识别",
+        tags: ["cream", "hybrid"],
+        url: "https://www.mytheresa.com/us/en/women/bottega-veneta-intrecciato-leather-trimmed-down-jacket-beige-p01099455"
+      },
+      {
+        brand: "Balenciaga",
+        title: "Hourglass down jacket",
+        image: "https://www.mytheresa.com/image/652/738/100/dc/P01118964.jpg",
+        price: "Mytheresa",
+        color: "白色",
+        style: "夸张廓形、形象陈列款",
+        tags: ["cream", "cropped"],
+        url: "https://www.mytheresa.com/us/en/women/balenciaga-hourglass-down-jacket-white-p01118964"
+      },
+      {
+        brand: "Max Mara",
+        title: "The Cube technical puffer vest",
+        image: "https://www.mytheresa.com/image/652/738/100/9a/P01124657.jpg",
+        price: "$1,095 / Mytheresa",
+        color: "蓝色",
+        style: "背心叠穿、过渡季",
+        tags: ["color", "vest"],
+        url: "https://www.mytheresa.com/us/en/women/max-mara-the-cube-technical-puffer-vest-blue-p01124657"
+      },
+      {
+        brand: "Norma Kamali",
+        title: "Sleeping Bag Coat",
+        image: "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1766012061-norma-kamali-coat-694334868750f.png?crop=1xw:1xh;center,top&resize=980:*",
+        price: "ELLE 推荐",
+        color: "棕色",
+        style: "长款包裹、腰带、极寒趋势",
+        tags: ["earth", "belted", "long"],
+        url: "https://www.elle.com/fashion/shopping/a69797327/best-puffer-jackets-women/"
+      },
+      {
+        brand: "Moncler",
+        title: "Darbon Down Puffer Jacket",
+        image: "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1765985605-imgi-1-0400025579137-burgundy-6942cd0d21000.jpg?crop=1.00xw:0.939xh;0,0.0337xh&resize=980:*",
+        price: "$2,210 / ELLE 推荐",
+        color: "酒红",
+        style: "酒红高端替代色",
+        tags: ["color", "cropped"],
+        url: "https://www.elle.com/fashion/shopping/a69797327/best-puffer-jackets-women/"
+      },
+      {
+        brand: "Guest In Residence",
+        title: "Quilted cashmere-blend reversible puffer",
+        image: "https://cdn.mos.cms.futurecdn.net/MXGK8aPfaBvGiZzYGvrXBP.jpg",
+        price: "$895 / Marie Claire 推荐",
+        color: "奶油色",
+        style: "可逆穿、羊绒混纺、标准短款",
+        tags: ["cream", "hybrid", "cropped"],
+        url: "https://www.marieclaire.com/fashion/g34618672/best-puffer-coats-jackets/"
+      },
+      {
+        brand: "Aritzia",
+        title: "The Super Puff Long",
+        image: "https://cdn.mos.cms.futurecdn.net/2Z5Em5uLsBozgxhkFGtYtU.jpg",
+        price: "$300 / Marie Claire 推荐",
+        color: "长款基础色",
+        style: "长款包裹、安全销量盘",
+        tags: ["long", "black"],
+        url: "https://www.marieclaire.com/fashion/g34618672/best-puffer-coats-jackets/"
+      }
+    ];
+
+    const container = document.getElementById("products");
+
+    function render(filter = "all") {
+      container.innerHTML = "";
+      products
+        .filter(item => filter === "all" || item.tags.includes(filter))
+        .forEach(item => {
+          const card = document.createElement("article");
+          card.className = "card";
+          card.innerHTML = `
+            <div class="media"><img src="${item.image}" alt="${item.brand} ${item.title}" loading="lazy"></div>
+            <div class="body">
+              <div class="brand">${item.brand}</div>
+              <div class="title">${item.title}</div>
+              <div class="meta">${item.price}<br>${item.color}<br>${item.style}</div>
+              <div class="tags">${item.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}</div>
+              <a class="source" href="${item.url}" target="_blank" rel="noreferrer">查看来源</a>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+    }
+
+    document.querySelectorAll("button[data-filter]").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll("button[data-filter]").forEach(b => b.classList.remove("active"));
+        button.classList.add("active");
+        render(button.dataset.filter);
+      });
+    });
+
+    render();
+  </script>
+</body>
+</html>
